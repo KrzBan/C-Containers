@@ -47,6 +47,9 @@ namespace basic {
 		T* end() { return m_End; }
 		const T* begin() const { return m_Begin; }
 		const T* end() const { return m_End; }
+		
+		const T* cbegin() const { return m_Begin; }
+		const T* cend() const { return m_End; }
 
 		T& front() { assert(m_Begin != m_End); return *m_Begin; }
 		T& back() { assert(m_Begin != m_End); return *(m_End - 1); }
