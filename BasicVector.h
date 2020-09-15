@@ -35,18 +35,18 @@ namespace basic {
 	template<typename T, typename Allocator = std::allocator<T>>
 	class Vector {
 	public:
-		typedef T																	value_type;
-		typedef Allocator															allocator_type;
-		typedef typename T&															reference;
-		typedef typename const T&													const_reference;
-		typedef T*																	iterator;
-		typedef const T*															const_iterator;
-		typedef typename std::allocator_traits<allocator_type>::size_type			size_type;
+		typedef T									value_type;
+		typedef Allocator								allocator_type;
+		typedef typename T&								reference;
+		typedef typename const T&							const_reference;
+		typedef T*									iterator;
+		typedef const T*								const_iterator;
+		typedef typename std::allocator_traits<allocator_type>::size_type		size_type;
 		typedef typename std::allocator_traits<allocator_type>::difference_type		difference_type;
-		typedef typename std::allocator_traits<allocator_type>::pointer				pointer;
+		typedef typename std::allocator_traits<allocator_type>::pointer			pointer;
 		typedef typename std::allocator_traits<allocator_type>::const_pointer		const_pointer;
-		typedef std::reverse_iterator<iterator>										reverse_iterator;
-		typedef std::reverse_iterator<const_iterator>								const_reverse_iterator;
+		typedef std::reverse_iterator<iterator>						reverse_iterator;
+		typedef std::reverse_iterator<const_iterator>					const_reverse_iterator;
 	private:
 		T* m_Begin;	//start of data
 		T* m_End;	//one after last element
@@ -76,14 +76,14 @@ namespace basic {
 
 		void pop_back() noexcept;
 
-		iterator		begin()		  noexcept	{ return iterator(m_Begin); }
+		iterator	begin()		  noexcept	{ return iterator(m_Begin); }
 		const_iterator	begin()	const noexcept	{ return begin(); }
-		iterator		end()		  noexcept	{ return iterator(m_End); }
+		iterator	end()		  noexcept	{ return iterator(m_End); }
 		const_iterator	end()	const noexcept	{ return end(); }
 
-		reverse_iterator		rbegin()	   noexcept	{ return reverse_iterator(end()); }
+		reverse_iterator	rbegin()	   noexcept	{ return reverse_iterator(end()); }
 		const_reverse_iterator	rbegin() const noexcept	{ return rbegin(); }
-		reverse_iterator		rend()		   noexcept	{ return reverse_iterator(begin()); }
+		reverse_iterator	rend()		   noexcept	{ return reverse_iterator(begin()); }
 		const_reverse_iterator	rend()	 const noexcept	{ return rend(); }
 
 		const_iterator cbegin()  const noexcept { return begin(); }
@@ -91,10 +91,10 @@ namespace basic {
 		const_iterator crbegin() const noexcept { return rbegin(); }
 		const_iterator crend()	 const noexcept { return rend(); }
 
-		reference front()			  { assert(m_Begin != m_End); return reference(*m_Begin); }
-		const_reference front() const { front(); }
-		reference back()			  { assert(m_Begin != m_End); return reference(*(m_End - 1)); }
-		const_reference back()	const { back(); }
+		reference 	front()		{ assert(m_Begin != m_End); return reference(*m_Begin); }
+		const_reference front() const 	{ front(); }
+		reference 	back()		{ assert(m_Begin != m_End); return reference(*(m_End - 1)); }
+		const_reference back()	const 	{ back(); }
 
 		void clear() noexcept;
 		void swap(Vector& other) noexcept;
@@ -102,7 +102,7 @@ namespace basic {
 		size_type maxSize() const noexcept { return static_cast<size_type>(m_Capacity - m_Begin); }
 		size_type capacity() const noexcept { return maxSize(); }
 
-		reference		operator[](size_t i)	   { return *(m_Begin + i); }
+		reference	operator[](size_t i)	   { return *(m_Begin + i); }
 		const_reference operator[](size_t i) const { return *(m_Begin + i); }
 
 		allocator_type get_allocator() const noexcept { return alloc; }
